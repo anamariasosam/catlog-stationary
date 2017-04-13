@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 
 import AuthenticatedMenu from './auth/AuthenticatedMenu'
 
-// import './styles/TopNav.scss'
+import './styles/TopNav.scss'
 
 const TopNav = ({ authenticated = false }) => (
   <div className="hamburger__placeholder">
@@ -31,7 +31,7 @@ const TopNav = ({ authenticated = false }) => (
           <ul className="nav navbar-nav navbar-left js_topMenu">
             <li>
               <Link className="menu__logo" to="/">
-                <img className="img-responsive" src="https://catlog.co/logo.png" alt="Logo" />
+                <img className="img-responsive" src="/assets/logo.png" alt="Logo" />
               </Link>
             </li>
             <li>
@@ -70,5 +70,4 @@ TopNav.propTypes = {
 
 const mapStateToProps = ({ authenticated }) => ({ authenticated })
 
-// export default connect(mapStateToProps)(TopNav)
-export default TopNav
+export default connect(mapStateToProps)(TopNav)
