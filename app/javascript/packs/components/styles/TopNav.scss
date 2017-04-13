@@ -1,0 +1,145 @@
+@import '../../style/colors';
+@import '../../style/mixins';
+
+$menu-height-desktop: 55px;
+$menu-height-mobile: 62px;
+
+.menu {
+  &__logo {
+    padding: 3px 0px 5px !important;
+    width: 150px;
+    max-height: 50px;
+
+    img {
+      max-width: 100% !important;
+    }
+  }
+}
+
+.hamburger {
+  &__button {
+    background: $white;
+    height: 45px;
+    width: 45px;
+
+    &:hover,
+    &:focus {
+      background-color: $white !important;
+    }
+
+    .icon-bar {
+      visibility: hidden;
+      background-color: $color5 !important;
+
+    }
+
+    &.collapsed .icon-bar {
+      visibility: visible;
+    }
+
+    i {
+      color: $color5;
+      display: inline-block;
+      font-size: 18px;
+      font-weight: lighter;
+      position: relative;
+      top: -10px;
+    }
+
+    &.collapsed i {
+      display: none;
+    }
+  }
+
+  &__items {
+
+  }
+
+  &__links {
+  }
+
+  &__list {
+
+  }
+
+  &__placeholder {
+    height: $menu-height-desktop;
+
+    @include respond-to(s) {
+      height: $menu-height-mobile;
+    };
+
+    @include respond-to(xs) {
+      height: $menu-height-mobile;
+    };
+  }
+
+  &__word {
+  }
+
+}
+
+.login_btn {
+  background: $color2;
+  background: -webkit-linear-gradient(45deg, $color2, #E543273);
+  background: -o-linear-gradient(45deg, $color2, #E543273);
+  background: -moz-linear-gradient(45deg, $color2, #E543273);
+  background: linear-gradient(45deg, $color2, #E543273);
+
+  border-radius: 2px;
+  color: $white !important;
+  font-weight: bold;
+  margin-top: 7px;
+  margin-right: 7px;
+  padding: 10px 20px !important;
+
+  &:active,
+  &:focus,
+  &:hover {
+    background-color: $color3 !important;
+    background: -webkit-linear-gradient(30deg, darken($color2, 10%),darken(#E54327, 5%));
+    background: -o-linear-gradient(30deg, darken($color2, 10%),darken(#E54327, 5%));
+    background: -moz-linear-gradient(30deg, darken($color2, 10%),darken(#E54327, 5%));
+    background: linear-gradient(30deg, darken($color2, 10%),darken(#E54327, 5%));
+
+  }
+}
+
+.navbar {
+  background-color: $white;
+
+  &-right {
+    & .open > a,
+    & .open > a:hover,
+    & .open > a:focus {
+      border-color: $color2;
+    }
+  }
+
+  &__adminItem {
+
+    @include respond-to(l) {
+      line-height: 25px !important;
+    };
+
+    @include respond-to(m) {
+      line-height: 25px !important;
+    };
+
+    @include respond-to(s) {
+      line-height: 27px !important;
+    };
+
+    @include respond-to(xs) {
+      line-height: 30px !important;
+    };
+  }
+
+  a {
+    border-bottom: 4px solid transparent;
+  }
+
+  .active {
+    border-color: coral;
+  }
+}

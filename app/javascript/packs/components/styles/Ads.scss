@@ -1,0 +1,19 @@
+.ads{
+  &__description {
+    color: #444;
+  }
+
+  &__here {
+    color: gray;
+    float: right;
+  }
+
+  &__top {
+    background-color: #ececec;
+    color: gray;
+    font-size: 12.5px;
+    margin: 10px 0 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+  }
+}

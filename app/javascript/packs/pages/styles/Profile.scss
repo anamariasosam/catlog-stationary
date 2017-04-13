@@ -1,0 +1,41 @@
+.profile {
+  display: flex;
+  min-height: calc(100vh - 130px);
+
+  .fa {
+    margin-right: 5px;
+  }
+
+  &__link {
+    display: block;
+    padding: 19px 0 17px 10px;
+    color: #fff;
+    &.active, 
+    &:hover {
+      background: #2b364a;
+      color: #fff;
+      text-decoration: none;
+      box-shadow: inset 0px -3px 12px 0px rgba(0,0,0,0.15);
+    }
+  }
+
+  &__list {
+    padding: 0;
+    margin: 0;
+    min-width: 175px;
+  }
+
+  &__menuItem {
+    border-bottom: 1px solid #3d4e6a;
+    width: 100%;
+    text-align: left;
+  }
+
+  &__sidebar {
+    background-color: #34425a;
+    flex: 1;
+    border-right: 1px solid #3d4e6a;
+    float: left;
+    width: 175px;
+  }
+}

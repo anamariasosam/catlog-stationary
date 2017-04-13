@@ -1,0 +1,39 @@
+@import '../../style/mixins';
+
+.post {
+  &__container {
+    margin: 2em 2em;
+    padding: 2em 2em;
+    background: #fff;
+  }
+
+  &__content {
+    margin-top: 3em;
+  }
+
+  &__image {
+    margin-bottom: 30px;
+  }
+
+  &__text {
+    line-height: 1.9em;
+    font-size: 1.25em;
+    color: #777;
+    margin-bottom: 1em;
+  }
+
+  &__title {
+    margin: 0;
+  }
+
+  @include respond-to(m) {
+    &__container {
+      padding: 1em 1em;
+      margin: 0;
+    }
+
+    &__text {
+      font-size: 1.15em;
+    }
+  };
+}

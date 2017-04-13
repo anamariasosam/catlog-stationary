@@ -1,0 +1,25 @@
+.hero {
+  background: url(https://catlog.co/assets/banner.jpg);
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  padding-bottom: 40px;
+  padding-top: 40px;
+  position: relative;
+  margin-bottom: 10px;
+
+  .btn-transparent {
+    background: rgba(255,255,255,0.3);
+    border-color: #fff;
+    color: #fff;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px #999;
+    transition: background 1s, box-shadow 500ms;
+  }
+
+  &__deck {
+    font-size: 24px;
+    max-width: 300px;
+    text-shadow: 1px 1px 3px #999;
+  }
+}

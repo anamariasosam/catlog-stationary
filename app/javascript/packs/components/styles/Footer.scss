@@ -1,0 +1,58 @@
+@import '../../style/colors';
+
+.footer {
+  background-color: $white;
+  clear: both;
+  color: $gray;
+  padding: 23px 0;
+  width: 100%;
+
+  .fa {
+    color: $color1;
+  }
+
+  &__help {
+    cursor: pointer;
+    font-size: 18px;
+  }
+
+  &__link {
+    color: $dark-gray;
+    font-weight: bold;
+    border-bottom: 1px dotted $white;
+
+    &:hover {
+      border-bottom-style: solid;
+      color: $gray;
+      font-style: italic;
+      text-decoration: none;
+    }
+  }
+
+  &__text {
+    font-size: 1.1em;
+    text-align: center;
+    margin: 0;
+  }
+
+  &__information {
+    background-color: #f1f1f1;
+    padding-bottom: 50px;
+    padding-top: 50px;
+  }
+
+  &__headline {
+    color: #333;
+    font-weight: bold;
+  }
+
+  &__list {
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+  &__infoLink {
+    color: #666;
+    line-height: 1.9;
+  }
+}
