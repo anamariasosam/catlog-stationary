@@ -30,3 +30,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Authentication
 gem "devise"
+
+# API
+gem 'active_model_serializers'
+
+# Store's tags
+gem 'acts-as-taggable-on', :git => 'https://github.com/mbleigh/acts-as-taggable-on'

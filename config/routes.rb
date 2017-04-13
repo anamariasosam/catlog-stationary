@@ -10,6 +10,10 @@ Rails.application.routes.draw do
     scope module: :v1 do
       resources :sessions, :only => [:create, :destroy]
       resources :users
+      resources :stores
+
+      get '/stores/tags/:tag', to: 'stores#tag', as: :tag
+      resources :tags, :only => [:index]
     end
   end
 end
