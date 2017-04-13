@@ -51,7 +51,8 @@ class Api::V1::UsersController < ApplicationController
         :instagram_id,
         :instagram_image,
         :instagram_token,
-        :instagram_account
+        :instagram_account,
+        :tag_list => []
       )
     end
 end
