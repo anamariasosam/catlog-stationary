@@ -1,6 +1,4 @@
 class Api::V1::StoresController < ApplicationController
-  respond_to :json
-
   def show
     render json: Store.find(params[:id])
   end
