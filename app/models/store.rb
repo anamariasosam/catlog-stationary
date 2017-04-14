@@ -4,4 +4,5 @@ class Store < User
   scope :by_join_date, ->{ order('created_at DESC') }
 
   has_many :products, dependent: :destroy
+  has_many :orders
 end

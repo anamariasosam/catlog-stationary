@@ -1,5 +1,5 @@
 class Api::V1::Stores::ProductsController < ApplicationController
-  before_action :authenticate_with_token!, only: [:create, :update, :destroy]
+  before_action :authenticate_as_store!
   respond_to :json
 
   def index

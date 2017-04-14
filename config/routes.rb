@@ -8,16 +8,20 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     scope module: :v1 do
       resources :sessions, :only => [:create, :destroy]
-      resources :users
-      resources :customers
+      resources :users, except: [:new]
 
-      namespace :stores do
-        resources :products, except: [:show]
+      namespace :customers do
+        resources :orders
       end
 
-      resources :stores
-      resources :products
+      namespace :stores do
+        resources :products, except: [:show, :new]
+        resources :orders, except: [:create, :new]
+      end
 
+      resources :customers, :only => [:show]
+      resources :stores, :only => [:index, :show]
+      resources :products, :only => [:index, :show]
       resources :categories, :only => [:index, :show]
 
       get '/stores/tags/:tag', to: 'stores#tag', as: :tag
