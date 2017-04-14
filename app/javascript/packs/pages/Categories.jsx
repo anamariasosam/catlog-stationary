@@ -70,12 +70,12 @@ class Categories extends Component {
   setProducts(err, res) {
     if (process.env.NODE_ENV === 'development') {
       // eslint-disable-next-line
-      console.log(res.req.url, res.body.data)
+      console.log(res.req.url, res.body.products)
     }
 
     if (err) { throw new Error(err) }
 
-    this.setState({ products: res.body.data })
+    this.setState({ products: res.body.products })
   }
 }
 

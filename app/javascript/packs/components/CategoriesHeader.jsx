@@ -37,14 +37,14 @@ export default class CategoriesHeader extends Component {
             </li>
 
             {categories && categories.map(category => (
-              <li className="category__item" key={category.attributes.name}>
+              <li className="category__item" key={category.name}>
                 <NavLink
                   exact
                   activeClassName="active"
                   className="category__link"
-                  to={`/categorias/${category.attributes.name.toLowerCase()}`}
+                  to={`/categorias/${category.name.toLowerCase()}`}
                 >
-                  {category.attributes.name}
+                  {category.name}
                 </NavLink>
               </li>
             ))}
@@ -60,12 +60,12 @@ export default class CategoriesHeader extends Component {
       .end((err, res) => {
         if (process.env.NODE_ENV === 'development') {
           // eslint-disable-next-line
-          console.log(res.req.url, res.body.data, res.length)
+          console.log(res.req.url, res.body.categories, res.length)
         }
 
         if (err) return
 
-        this.setState({ categories: res.body.data })
+        this.setState({ categories: res.body.categories })
       })
   }
 }

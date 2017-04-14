@@ -25,9 +25,9 @@ class RecentProducts extends Component {
 
         <div className="row">
           {/* TODO: Make sure the API send only 4 items to remove the slice method */}
-          {products
+          {products.products
             .slice(0, 4)
-            .map(product => <Thumb {...product.attributes} key={product.id} /> )}
+            .map(product => <Thumb {...product} key={product.id} /> )}
         </div>
       </section>
     )

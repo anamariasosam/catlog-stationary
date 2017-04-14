@@ -36,15 +36,14 @@ class ProductPage extends Component {
     this.state = {
       error: false,
       loading: true,
-      categoryName: 'Missing prop',
-      categoryURL: 'Missing prop',
+      category: {},
       deliveryPrice: 'Missing prop',
       imageAlt: 'Missing prop',
       image: '',
       description: '',
       name: '',
       price: 0,
-      storeName: 'Missing prop',
+      storeName: '',
       storeURL: 'Missing prop',
       errorLoading: null,
     }
@@ -56,7 +55,7 @@ class ProductPage extends Component {
       .end((err, res) => {
         if (process.env.NODE_ENV === 'development') {
           // eslint-disable-next-line
-          console.log(res.req.url, res.body.data)
+          console.log(res.req.url, res.body.product)
         }
 
         if (err) {
@@ -66,7 +65,7 @@ class ProductPage extends Component {
           })
         } else {
           this.setState({
-            ...res.body.data,
+            ...res.body.product,
             loading: false,
           })
         }
@@ -75,8 +74,7 @@ class ProductPage extends Component {
 
   render() {
     const {
-      categoryName,
-      categoryURL,
+      category,
       deliveryPrice,
       imageAlt,
       image,
@@ -135,8 +133,8 @@ class ProductPage extends Component {
 
               <p className="align-left">
                 <b>Categoría:</b>
-                <a className="category__link" href={categoryURL}>
-                  {categoryName}
+                <a className="category__link" href={category.links.products}>
+                  {category.name}
                 </a>
               </p>
 
