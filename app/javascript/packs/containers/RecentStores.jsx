@@ -1,30 +1,18 @@
 import React, { Component } from 'react'
-import superagent from 'superagent'
+
+import Loader from './HOCLoader'
 
 import '../assets-style/containers/RecentStores.scss'
 
-export default class RecentStores extends Component {
-  constructor() {
-    super()
-
-    this.state = {
-      stores: null,
-    }
-
-    this.populateStores = ::this.populateStores
-  }
-
-  componentDidMount() {
-    this.populateStores()
-  }
+class RecentStores extends Component {
 
   render() {
-    if (!this.state.stores) {
+    if (!this.props.items) {
       // blank state
       return <p className="container">No Cargaron las tiendas aliadas</p>
     }
 
-    const { stores } = this.state
+    const { items: stores } = this.props
 
     return (
       <section className="container">
@@ -45,19 +33,8 @@ export default class RecentStores extends Component {
       </section>
     )
   }
-
-  populateStores() {
-    superagent
-      .get('/api/stores')
-      .end((err, res) => {
-        if (process.env.NODE_ENV === 'development') {
-          // eslint-disable-next-line
-          console.log(res.req.url, res.body, res.body.length)
-        }
-
-        if (err) return
-
-        this.setState({ stores: res.body.slice(0, 4) })
-      })
-  }
 }
+
+export default Loader({
+  api: 'stores',
+})(RecentStores)
