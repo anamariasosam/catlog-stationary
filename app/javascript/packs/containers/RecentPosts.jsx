@@ -1,7 +1,7 @@
 import React, {
   Component,
 } from 'react'
-import request from 'superagent'
+import superagent from 'superagent'
 
 import PostItem from '../components/PostItem'
 
@@ -12,22 +12,25 @@ export default class RecentPosts extends Component {
     this.state = {
       posts: null,
     }
+
+    this.populatePosts = ::this.populatePosts
   }
+
   componentWillMount() {
-    request
-      .get('/api/posts?latest=true')
-      .end((err, res) => {
-        this.setState({
-          posts: res.body.posts,
-        })
-      })
+    this.populatePosts()
   }
 
   render() {
     if (!this.state.posts) {
       // blank state
-      return <p>No hay productos recientes</p>
+      return (
+        <section className="container">
+          <p>No hay posts</p>
+        </section>
+      )
     }
+
+    const { posts } = this.state
 
     return (
       <section className="container">
@@ -37,11 +40,26 @@ export default class RecentPosts extends Component {
 
         <div>
           {/* TODO: Remove index and replace with product id after the real API */}
-          {this.state.posts.map((post, i) => (
+          {posts.map((post, i) => (
             <PostItem {...post} key={i} />
           ))}
         </div>
       </section>
     )
+  }
+
+  populatePosts() {
+    superagent
+      .get('/api/posts?latest=true')
+      .end((err, res) => {
+        if (process.env.NODE_ENV === 'development') {
+          // eslint-disable-next-line
+          console.log(res.req.url, res.body)
+        }
+
+        if (err) return
+
+        this.setState({ posts: res.body })
+      })
   }
 }
