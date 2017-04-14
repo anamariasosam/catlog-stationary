@@ -1,4 +1,4 @@
-.category{
+.category {
 
   &__item {
     display: inline-block;
@@ -17,5 +17,10 @@
     display: inline-block;
     font-family: sans-serif, Arial;
     padding: 5px 15px;
+
+    &.active {
+      background-color: #666;
+      color: white;
+    }
   }
 }
