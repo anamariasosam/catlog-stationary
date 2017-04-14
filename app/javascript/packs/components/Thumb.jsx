@@ -14,22 +14,24 @@ const Thumb = ({
   name,
   price,
 }) => (
-  <div className="thumbnail">
-    <Link to={`${PRODUCT_PATH}/${id}`}>
-      <img alt={alt} className="thumbnail__image" src={image} />
-    </Link>
+  <div className="col-xs-6 col-sm-3">
+    <div className="thumbnail">
+      <Link to={`${PRODUCT_PATH}/${id}`}>
+        <img alt={alt} className="thumbnail__image" src={image} />
+      </Link>
 
-    <div className="caption">
-      <h3 className="thumbnail__name">
-        <Link className="thumbnail__link" to={`${PRODUCT_PATH}/${id}`}>
-          {name}
-        </Link>
-      </h3>
+      <div className="caption">
+        <h3 className="thumbnail__name">
+          <Link className="thumbnail__link" to={`${PRODUCT_PATH}/${id}`}>
+            {name}
+          </Link>
+        </h3>
 
-      <p className="thumbnail__price">
-        ${price}
-      </p>
+        <p className="thumbnail__price">
+          ${price}
+        </p>
 
+      </div>
     </div>
   </div>
 )

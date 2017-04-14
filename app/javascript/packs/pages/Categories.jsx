@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import ReactPaginate from 'react-paginate'
-import request from 'superagent'
+import superagent from 'superagent'
 
 import CategoriesHeader from '../components/CategoriesHeader'
 import CategoryAdLine from '../components/CategoryAdLine'
@@ -22,13 +22,15 @@ class Categories extends Component {
   }
 
   componentDidMount() {
-    request
+    // TODO: use one method to load products either from page 0 or selected page e.g. 2..3
+    superagent
       .get('/api/products')
       .end(this.setProducts)
   }
 
   render() {
     const categoryName = this.props.match.params.categoryName || 'todo'
+    const { products } = this.state
 
     return (
       <div>
@@ -36,12 +38,8 @@ class Categories extends Component {
 
         <CategoryAdLine />
 
-        {/* TODO: Remove index and replace with product id after the real API */}
-        {this.state.products.map((product, i) => (
-          <div className="col-xs-6 col-sm-3" key={i}>
-            <Thumb {...product} />
-          </div>
-        ))}
+        {products.map(product => <Thumb {...product} key={product.id}/> )}
+
         <div className="text-center">
           <ReactPaginate
             // this key resets the counter when change page
@@ -64,7 +62,7 @@ class Categories extends Component {
   }
 
   handlePageClick({ selected }) {
-    request
+    superagent
       .get(`/api/products?page=${selected}`)
       .end(this.setProducts)
   }

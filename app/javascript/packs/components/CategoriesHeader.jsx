@@ -13,6 +13,8 @@ export default class CategoriesHeader extends Component {
       loading: true,
       categories: null,
     }
+
+    this.populateCategories = ::this.populateCategories
   }
 
   componentDidMount() {
