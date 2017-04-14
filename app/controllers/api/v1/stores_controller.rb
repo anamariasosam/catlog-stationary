@@ -1,4 +1,4 @@
-class Api::V1::StoresController < ApplicationController
+class API::V1::StoresController < ApplicationController
   def show
     render json: Store.find(params[:id])
   end
