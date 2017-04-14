@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router'
+import { Link } from 'react-router-dom'
 
 import request from 'superagent'
 
@@ -32,13 +32,29 @@ class ProductPage extends Component {
     this.state = {
       error: false,
       loading: true,
+      categoryName: 'Missing prop',
+      categoryURL: 'Missing prop',
+      deliveryPrice: 'Missing prop',
+      imageAlt: 'Missing prop',
+      image: '',
+      description: '',
+      name: '',
+      price: 0,
+      storeName: 'Missing prop',
+      storeURL: 'Missing prop',
+      errorLoading: null,
     }
   }
 
   componentWillMount() {
     request
-      .get(`/api/product/${this.props.params.productID}`)
+      .get(`/api/products/${this.props.match.params.productID}`)
       .end((err, res) => {
+        if (process.env.NODE_ENV === 'development') {
+          // eslint-disable-next-line
+          console.log(res.req.url, res.body)
+        }
+
         if (err) {
           this.setState({
             errorLoading: 'Hay un error cargando el producto, intenta de nuevo',
@@ -59,21 +75,20 @@ class ProductPage extends Component {
       categoryURL,
       deliveryPrice,
       imageAlt,
-      imageURL,
-      productDescription,
-      productName,
-      productPrice,
-      storeName,
-      storeURL,
+      image,
+      description,
+      name,
+      price,
       loading,
       errorLoading,
+      ...headerProps
     } = this.state
 
     const {
-      params,
+      match,
     } = this.props
 
-    const orderURL = `/producto/${params.productID}/orden`
+    const orderURL = `/producto/${match.params.productID}/orden`
 
     if (loading || errorLoading) {
       return <div className="container">{errorLoading || 'Cargando...'}</div>
@@ -81,22 +96,22 @@ class ProductPage extends Component {
 
     return (
       <div>
-        <ProductHeader storeName={storeName} storeURL={storeURL} />
+        <ProductHeader {...headerProps} />
 
         <section className="container product">
           <div className="row">
             <div className="col-xs-12 col-sm-6">
-              <img src={imageURL} className="product__image img-responsive" alt={imageAlt} />
+              <img src={image} className="product__image img-responsive" alt={imageAlt} />
             </div>
 
             <div className="product__caption caption col-xs-12 col-sm-6">
 
               <header className="clearfix">
                 <h1 className="product__name">
-                  {productName}
+                  {name}
                 </h1>
                 <h2 className="product__price">
-                  {productPrice}
+                  {price}
                 </h2>
                 <h4>
                   <span className="label label-default">+ Envío $ {deliveryPrice}</span>
@@ -108,7 +123,7 @@ class ProductPage extends Component {
                 <p>
                   <b>Descripción:</b>
                 </p>
-                <div>{productDescription}</div>
+                <div>{description}</div>
               </div>
 
               <br />
@@ -138,8 +153,10 @@ class ProductPage extends Component {
 }
 
 ProductPage.propTypes = {
-  params: PropTypes.shape({
-    productID: PropTypes.string,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      productID: PropTypes.string,
+    }),
   }),
 }
 
