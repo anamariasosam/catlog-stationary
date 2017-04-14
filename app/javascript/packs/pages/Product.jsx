@@ -56,7 +56,7 @@ class ProductPage extends Component {
       .end((err, res) => {
         if (process.env.NODE_ENV === 'development') {
           // eslint-disable-next-line
-          console.log(res.req.url, res.body)
+          console.log(res.req.url, res.body.data)
         }
 
         if (err) {
@@ -66,7 +66,7 @@ class ProductPage extends Component {
           })
         } else {
           this.setState({
-            ...res.body,
+            ...res.body.data,
             loading: false,
           })
         }
