@@ -50,8 +50,8 @@ const App = props => (
               <Route exact path="/" component={Home} />
               <Route path={BLOG_PATH} component={Blog} />
               <Route path="/blog/post/:postID" component={Post} />
-              <Route path={`${CATEGORIES_PATH}/:categoryName(/:pageNumber)`} component={Categories} />
-              <Route path={`${CATEGORIES_PATH}(/:pageNumber)`} component={Categories} />
+              <Route path={`${CATEGORIES_PATH}/:categoryName/:pageNumber?`} component={Categories} />
+              <Route path={`${CATEGORIES_PATH}/:pageNumber?`} component={Categories} />
               <Route path={`${CATEGORIES_PATH}`} component={Categories} />
               <Route path={CONTACT_PATH} component={Contact} />
               <Route path={LOGIN_PATH} component={LoginHome} />
