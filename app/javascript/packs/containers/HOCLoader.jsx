@@ -26,12 +26,12 @@ const HOCLoader = variant => ComposedComponent => class Loader extends Component
       .end((err, res) => {
         if (process.env.NODE_ENV === 'development') {
           // eslint-disable-next-line
-          console.log(res.req.url, res.body, this.props)
+          console.log(res.req.url, res.body.data, this.props)
         }
 
         if (err) return
 
-        this.setState({ items: res.body })
+        this.setState({ items: res.body.data })
       })
   }
 }

@@ -24,7 +24,7 @@ class PostPage extends Component {
           })
         } else {
           this.setState({
-            ...res.body,
+            ...res.body.data,
             loading: false,
           })
         }
