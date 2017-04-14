@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import superagent from 'superagent'
 import jsonp from 'superagent-jsonp'
-import { Link } from 'react-router'
+import { Link } from 'react-router-dom'
 
 import '../assets-style/pages/Profile.scss'
 

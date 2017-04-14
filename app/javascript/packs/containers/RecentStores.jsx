@@ -1,6 +1,4 @@
-import React, {
-  Component,
-} from 'react'
+import React, { Component } from 'react'
 import request from 'superagent'
 
 import '../assets-style/containers/RecentStores.scss'
@@ -16,13 +14,16 @@ export default class RecentStores extends Component {
 
   componentWillMount() {
     request
-      .get('/api/stores?latest=true')
+      .get('/api/stores')
       .end((err, res) => {
+        if (process.env.NODE_ENV === 'development') {
+          // eslint-disable-next-line
+          console.log(res.req.url, res.body, res.body.length)
+        }
+
         if (err) return
 
-        this.setState({
-          stores: res.body.stores,
-        })
+        this.setState({ stores: res.body.slice(0, 4) })
       })
   }
 
@@ -40,9 +41,9 @@ export default class RecentStores extends Component {
 
         <div className="row">
           {this.state.stores.map((store, i) => (
-            <div className="partners__item col-xs-6 col-sm-4 col-md-2" key={i}>
-              <a href={store.storeURL}>
-                <img src={store.imageURL} role="presentation" />
+            <div className="partners__item col-xs-6 col-sm-4 col-md-3" key={i}>
+              <a href={`//www.instagram.com/${store.instagram_account}`}>
+                <img src={store.instagram_image} role="presentation" />
               </a>
             </div>
           ))}

@@ -17,18 +17,24 @@ export default class RecentProducts extends Component {
     request
       .get('/api/products?latest=true')
       .end((err, res) => {
+        if (process.env.NODE_ENV === 'development') {
+          // eslint-disable-next-line
+          console.log('api/products', res.body, res.body.length)
+        }
         if (err) return
 
-        this.setState({
-          products: res.body.products,
-        })
+        this.setState({ products: res.body.slice(0, 4) })
       })
   }
 
   render() {
     if (!this.state.products) {
       // blank state
-      return <p>No hay productos recientes</p>
+      return (
+        <section className="container">
+          <p>No hay productos recientes</p>
+        </section>
+      )
     }
 
     return (
@@ -38,9 +44,8 @@ export default class RecentProducts extends Component {
         </header>
 
         <div className="row">
-          {/* TODO: Remove index and replace with product id after the real API */}
-          {this.state.products.map((product, i) => (
-            <div className="col-xs-6 col-sm-3" key={i}>
+          {this.state.products.map(product => (
+            <div className="col-xs-6 col-sm-3" key={product.id}>
               <Thumb {...product} />
             </div>
           ))}

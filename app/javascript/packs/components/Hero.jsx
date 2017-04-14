@@ -2,7 +2,7 @@ import React from 'react'
 import '../assets-style/components/Hero.scss'
 
 const Hero = () => (
-  <header className="hero" style={{ 'background-image': 'url(/assets/banner.jpg)' }}>
+  <header className="hero" style={{ backgroundImage: 'url(/assets/banner.jpg)' }}>
     <section className="container">
       <p className="hero__deck">Los productos de Instagram en un sólo lugar</p>
       <br />
