@@ -31,7 +31,7 @@ const HOCLoader = variant => ComposedComponent => class Loader extends Component
 
         if (err) return
 
-        this.setState({ items: res.body })
+        this.setState({ items: res.body[variant.api] })
       })
   }
 }

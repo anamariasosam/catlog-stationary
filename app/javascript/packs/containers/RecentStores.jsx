@@ -21,7 +21,7 @@ class RecentStores extends Component {
         </header>
 
         <div className="row">
-          {stores.stores.map((store, i) => (
+          {stores.map((store, i) => (
             <div className="partners__item col-xs-6 col-sm-4 col-md-3" key={i}>
               <a href={`//www.instagram.com/${store.instagramAccount}`}>
                 <img src={store.instagramImage} role="presentation" />
