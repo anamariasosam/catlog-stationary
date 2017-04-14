@@ -1,9 +1,9 @@
-Category.create!(name:"Zapatos")
-Category.create!(name:"Vestidos")
-Category.create!(name:"Bolsos")
-Category.create!(name:"Accesorios")
+Category.create(name:"Zapatos")
+Category.create(name:"Vestidos")
+Category.create(name:"Bolsos")
+Category.create(name:"Accesorios")
 
-Store.create!(
+Store.create(
     password: "12345678",
     password_confirmation: "12345678",
     phone_number: "3168679318",
@@ -16,9 +16,10 @@ Store.create!(
     info: "Calzado Nacional para toda la familia👠👞 Cra 51 # 44-22 Medellín - Colombia 🇨🇴Horario de atención: 9 am - 6.30 pm. Envíos a todo el país 🚚",
     city: "Medellín",
     country: "Colombia",
-    tag_list: ["zapatos","tenis"]
+    tag_list: ["zapatos"]
+
     )
-Store.create!(
+Store.create(
     password: "12345678",
     password_confirmation: "12345678",
     phone_number: "3128346056",
@@ -31,9 +32,9 @@ Store.create!(
     name: "Fe Handbags",
     city: "Medellín",
     country: "Colombia",
-    tag_list: ["bolsos","collares"]
+    tag_list: ["bolsos", "aretas", "pulseras"]
 )
-Store.create!(
+Store.create(
     password: "12345678",
     password_confirmation: "12345678",
     phone_number: "3206649127",
@@ -45,9 +46,9 @@ Store.create!(
     name: "Mandala Medellín ",
     city: "Medellín ",
     country: "Colombia",
-    tag_list: ["iphone cases"]
+    tag_list: ["cases"]
 )
-Store.create!(
+Store.create(
     password: "12345678",
     password_confirmation: "12345678",
     phone_number: "3046546491",
@@ -60,9 +61,9 @@ Store.create!(
     name: "Company Store",
     city: "Medellín",
     country: "Colombia",
-    tag_list: ["vestidos","pantalones"]
+    tag_list: ["bolsos", "zapatos"]
 )
-Store.create!(
+Store.create(
     password: "12345678",
     password_confirmation: "12345678",
     phone_number: "320 681 98 47",
@@ -77,7 +78,7 @@ Store.create!(
     country: "Colombia",
     tag_list: ["lenceria"]
 )
-Store.create!(
+Store.create(
     password: "12345678",
     password_confirmation: "12345678",
     phone_number: "3105020804",
@@ -90,11 +91,39 @@ Store.create!(
     name: "EL CUARTO TIENDA",
     city: "medellin",
     country: "Colombia",
-    tag_list: ["zapatos","tenis"]
+    tag_list: ["bolsos", "zapatos", "ropa"]
 )
-
-
-Store.create!(
+Store.create(
+    password: "12345678",
+    password_confirmation: "12345678",
+    phone_number: "3128621258",
+    instagram_id: "1998872509",
+    instagram_image: "https://scontent.cdninstagram.com/t51.2885-19/s150x150/15338508_1184228601668284_4333347428699734016_a.jpg",
+    email: "celulibresmedellin@gmail.com",
+    instagram_token: "1998872509.9b7a7c0.ca3a89306fcd4c3185805576b359d163",
+    instagram_account: "celularescellworld",
+    info: "Equipos 100% originales. \r\nExcelentes precios\r\nGarantizados.\r\nRecibimos todas las tarjetas de crédito. \r\nPuedes pagar contra entrega. ",
+    name: "Celularescellworld",
+    city: "Medellín",
+    country: "Colombia",
+    tag_list: ["celulares"]
+)
+Store.create(
+    password: "12345678",
+    password_confirmation: "12345678",
+    phone_number: "3122309969",
+    instagram_id: "2094873024",
+    instagram_image: "https://instagram.feoh1-1.fna.fbcdn.net/t51.2885-19/s150x150/13739450_1435067909853288_57130789_a.jpg",
+    email: "ainhoa.ropa.femenina@gmail.com",
+    instagram_token: "2094873024.9b7a7c0.8ea592865308404c9ffe61b3f758c500",
+    instagram_account: "ainhoamujer",
+    info: "Ropa femenina",
+    name: "Ainhoamujer",
+    city: "Medellín",
+    country: "Colombia",
+    tag_list: ["bodies"]
+)
+Store.create(
     password: "12345678",
     password_confirmation: "12345678",
     phone_number: "3116099695",
@@ -107,9 +136,9 @@ Store.create!(
     name: "Guardapelo Accesorios",
     city: "Medellín",
     country: "Colombia",
-    tag_list: ["cadenas","pulseras"]
+    tag_list: ["aretas", "pulseras"]
 )
-Store.create!(
+Store.create(
     password: "12345678",
     password_confirmation: "12345678",
     phone_number: "3006030304",
@@ -122,9 +151,9 @@ Store.create!(
     name: "Accesorios femm",
     city: "Medellín",
     country: "Colombia",
-    tag_list: ["accesorios"]
+    tag_list: ["aretas", "pulseras"]
 )
-Store.create!(
+Store.create(
     password: "12345678",
     password_confirmation: "12345678",
     phone_number: "3015352224",
@@ -139,7 +168,7 @@ Store.create!(
     country: "Colombia",
     tag_list: ["bolsos"]
 )
-Store.create!(
+Store.create(
     password: "12345678",
     password_confirmation: "12345678",
     phone_number: "3103850649",
@@ -152,10 +181,10 @@ Store.create!(
     name: "Vintro ",
     city: "Medellín",
     country: "Colombia",
-    tag_list: ["bolsos","billeteras"]
+    tag_list: ["bolsos"]
 )
 
-Product.create!(
+Product.create(
     name: "Choker",
     price: 12000,
     quantity: 3,
@@ -165,7 +194,7 @@ Product.create!(
     category_id: 4,
     store_id: 10
 )
-Product.create!(
+Product.create(
     name: "collar ",
     price: 23000,
     quantity: 2,
@@ -175,7 +204,7 @@ Product.create!(
     category_id: 4,
     store_id: 10
 )
-Product.create!(
+Product.create(
     name: "white choker",
     price: 4000,
     quantity: 10,
@@ -185,7 +214,7 @@ Product.create!(
     category_id: 4,
     store_id: 10
 )
-Product.create!(
+Product.create(
     name: "collar ",
     price: 15000,
     quantity: 3,
@@ -195,7 +224,7 @@ Product.create!(
     category_id: 4,
     store_id: 10
 )
-Product.create!(
+Product.create(
     name: "choker ",
     price: 15000,
     quantity: 5,
@@ -205,7 +234,7 @@ Product.create!(
     category_id: 4,
     store_id: 10
 )
-Product.create!(
+Product.create(
     name: "Topitos",
     price: 4000,
     quantity: 10,
@@ -215,7 +244,7 @@ Product.create!(
     category_id: 4,
     store_id: 10
 )
-Product.create!(
+Product.create(
     name: "choker ",
     price: 14000,
     quantity: 6,
@@ -225,7 +254,7 @@ Product.create!(
     category_id: 4,
     store_id: 10
 )
-Product.create!(
+Product.create(
     name: "aretes triángulo",
     price: 10000,
     quantity: 4,
@@ -235,7 +264,7 @@ Product.create!(
     category_id: 4,
     store_id: 10
 )
-Product.create!(
+Product.create(
     name: "choker ",
     price: 18000,
     quantity: 2,
@@ -245,7 +274,7 @@ Product.create!(
     category_id: 4,
     store_id: 10
 )
-Product.create!(
+Product.create(
     name: "choker doble verde menta",
     price: 14000,
     quantity: 2,
@@ -255,7 +284,7 @@ Product.create!(
     category_id: 4,
     store_id: 10
 )
-Product.create!(
+Product.create(
     name: "Zapatilla Hombre Cuero",
     price: 135000,
     quantity: 9,
@@ -265,7 +294,7 @@ Product.create!(
     category_id: 1,
     store_id: 1
 )
-Product.create!(
+Product.create(
     name: "Valeta niña Plastica",
     price: 25000,
     quantity: 4,
@@ -275,7 +304,7 @@ Product.create!(
     category_id: 1,
     store_id: 1
 )
-Product.create!(
+Product.create(
     name: "Tennis Lona ",
     price: 65000,
     quantity: 12,
@@ -285,7 +314,7 @@ Product.create!(
     category_id: 1,
     store_id: 1
 )
-Product.create!(
+Product.create(
     name: "Botines en cuero",
     price: 135000,
     quantity: 15,
@@ -295,7 +324,7 @@ Product.create!(
     category_id: 1,
     store_id: 1
 )
-Product.create!(
+Product.create(
     name: "Bota was",
     price: 110000,
     quantity: 15,
@@ -305,7 +334,7 @@ Product.create!(
     category_id: 1,
     store_id: 1
 )
-Product.create!(
+Product.create(
     name: "Forche ",
     price: 70000,
     quantity: 40,
@@ -315,7 +344,7 @@ Product.create!(
     category_id: 1,
     store_id: 1
 )
-Product.create!(
+Product.create(
     name: "Combo: Bolso + Valeta",
     price: 115000,
     quantity: 1,
@@ -325,7 +354,7 @@ Product.create!(
     category_id: 3,
     store_id: 1
 )
-Product.create!(
+Product.create(
     name: "Sandalia Plana",
     price: 48000,
     quantity: 10,
@@ -335,7 +364,7 @@ Product.create!(
     category_id: 1,
     store_id: 1
 )
-Product.create!(
+Product.create(
     name: "Sandalia ",
     price: 52000,
     quantity: 10,
@@ -345,7 +374,7 @@ Product.create!(
     category_id: 1,
     store_id: 1
 )
-Product.create!(
+Product.create(
     name: "Espadrilas",
     price: 38000,
     quantity: 15,
@@ -355,7 +384,7 @@ Product.create!(
     category_id: 1,
     store_id: 1
 )
-Product.create!(
+Product.create(
     name: "Choker doble",
     price: 14000,
     quantity: 2,
@@ -365,7 +394,7 @@ Product.create!(
     category_id: 4,
     store_id: 10
 )
-Product.create!(
+Product.create(
     name: "choker triple",
     price: 28000,
     quantity: 1,
@@ -375,8 +404,8 @@ Product.create!(
     category_id: 4,
     store_id: 10
 )
-Product.create!(
-    name: "Choker",
+Product.create(
+    name: "choker ",
     price: 14000,
     quantity: 2,
     image: "https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/14369097_177958389275846_6136061605034590208_n.jpg?ig_cache_key=MTM0NTk2NDQ4NDU3NzgyMzg1MA%3D%3D.2",
@@ -385,8 +414,8 @@ Product.create!(
     category_id: 4,
     store_id: 10
 )
-Product.create!(
-    name: "Choker",
+Product.create(
+    name: "choker ",
     price: 18000,
     quantity: 1,
     image: "https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/14280391_1778285332418423_1045353302_n.jpg?ig_cache_key=MTMzNzA4MjU2NDQxMDUyMjk5NA%3D%3D.2",
@@ -395,7 +424,7 @@ Product.create!(
     category_id: 4,
     store_id: 10
 )
-Product.create!(
+Product.create(
     name: "CHOKER 3 cadenas",
     price: 23000,
     quantity: 1,
@@ -405,7 +434,7 @@ Product.create!(
     category_id: 4,
     store_id: 10
 )
-Product.create!(
+Product.create(
     name: "Prendedores",
     price: 3500,
     quantity: 6,
@@ -415,7 +444,7 @@ Product.create!(
     category_id: 4,
     store_id: 10
 )
-Product.create!(
+Product.create(
     name: "tenis amarillos",
     price: 85000,
     quantity: 2,
@@ -425,7 +454,7 @@ Product.create!(
     category_id: 1,
     store_id: 6
 )
-Product.create!(
+Product.create(
     name: "CUELLO BEBE",
     price: 65000,
     quantity: 3,
@@ -436,7 +465,7 @@ Product.create!(
     store_id: 6
 )
 
-Product.create!(
+Product.create(
     name: "KIMONO",
     price: 68000,
     quantity: 2,
@@ -447,7 +476,7 @@ Product.create!(
     store_id: 3
 )
 
-Product.create!(
+Product.create(
     name: "TENIS PROMO",
     price: 60000,
     quantity: 10,
@@ -459,7 +488,7 @@ Product.create!(
     store_id: 6
 )
 
-Customer.create!(
+Customer.create(
     password: "12345678",
     password_confirmation: "12345678",
     phone_number: "3138251720",
@@ -473,7 +502,7 @@ Customer.create!(
     city: "Villavicencio",
     country: "Colombia"
 )
-Customer.create!(
+Customer.create(
     password: "12345678",
     password_confirmation: "12345678",
     phone_number: "3168679318",
@@ -487,7 +516,7 @@ Customer.create!(
     city: "Medellín",
     country: "Colombia"
 )
-Customer.create!(
+Customer.create(
     password: "12345678",
     password_confirmation: "12345678",
     phone_number: "3005276053",
@@ -501,8 +530,21 @@ Customer.create!(
     city: "Bogotá ",
     country: "Colombia"
 )
-
-Customer.create!(
+Customer.create(
+    password: "12345678",
+    password_confirmation: "12345678",
+    phone_number: "3006030304",
+    instagram_id: "1381680531",
+    instagram_image: "https://scontent.cdninstagram.com/t51.2885-19/s150x150/13694953_1045801198866899_637070588_a.jpg",
+    email: "manu11.12@hotmail.com",
+    instagram_token: "1381680531.9b7a7c0.935d020d7fbe49f68a8bdbfa27e8dfe8",
+    instagram_account: "accesoriosfemm",
+    info: "",
+    name: "Manuela Martínez Echavarría",
+    city: "Medellin",
+    country: "Colombia"
+)
+Customer.create(
     password: "12345678",
     password_confirmation: "12345678",
     phone_number: "3155533098",
