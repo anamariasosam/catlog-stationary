@@ -3,7 +3,7 @@ import React, {
 } from 'react'
 import request from 'superagent'
 
-import './styles/RecentStores.scss'
+import '../assets-style/containers/RecentStores.scss'
 
 export default class RecentStores extends Component {
   constructor() {

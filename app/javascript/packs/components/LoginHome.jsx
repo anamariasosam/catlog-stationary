@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import './styles/LoginHome.scss'
+import '../assets-style/components/LoginHome.scss'
 
 const loginCode = '98875d9172fdf6262707e064a259948646687cbd1a7ef561b33f081a8a739c27'
 const storecode = '94d293e03fddf4809f11425f10eccdbb7015737b47596132773c9b8f12b5e8c9'

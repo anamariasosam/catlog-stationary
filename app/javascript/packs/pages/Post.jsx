@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import request from 'superagent'
-import './styles/Post.scss'
+import '../assets-style/pages/Post.scss'
 
 class PostPage extends Component {
   constructor() {

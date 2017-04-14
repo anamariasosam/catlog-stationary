@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import './styles/Footer.scss'
+import '../assets-style/components/Footer.scss'
 
 const FooterExpanded = () => (
   <footer className="footer__information js_footerInfo" >

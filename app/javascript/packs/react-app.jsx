@@ -7,6 +7,8 @@ import ReactDOM from 'react-dom'
 
 import App from './App'
 
+import './assets-style/main.scss'
+
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
     <App />,

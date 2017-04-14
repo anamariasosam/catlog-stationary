@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 
 import AuthenticatedMenu from './auth/AuthenticatedMenu'
 
-import './styles/TopNav.scss'
+import '../assets-style/components/TopNav.scss'
 
 const TopNav = ({ authenticated = false }) => (
   <div className="hamburger__placeholder">

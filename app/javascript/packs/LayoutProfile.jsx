@@ -4,7 +4,6 @@ import { Link } from 'react-router'
 
 import TopNav from './components/TopNav'
 import Footer from './components/Footer'
-import './style/main.scss'
 
 const links = [
   {
@@ -29,7 +28,7 @@ const links = [
   },
 ]
 
-const Layout = props => (
+const LayoutProfile = props => (
   <div>
     <TopNav />
     <div className="content">
@@ -59,8 +58,8 @@ const Layout = props => (
   </div>
 )
 
-Layout.propTypes = {
+LayoutProfile.propTypes = {
   children: PropTypes.node,
 }
 
-export default Layout
+export default LayoutProfile
