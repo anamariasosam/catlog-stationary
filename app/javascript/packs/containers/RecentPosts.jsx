@@ -1,27 +1,12 @@
-import React, {
-  Component,
-} from 'react'
-import superagent from 'superagent'
+import React, { Component } from 'react'
 
+import Loader from './HOCLoader'
 import PostItem from '../components/PostItem'
 
-export default class RecentPosts extends Component {
-  constructor() {
-    super()
-
-    this.state = {
-      posts: null,
-    }
-
-    this.populatePosts = ::this.populatePosts
-  }
-
-  componentWillMount() {
-    this.populatePosts()
-  }
+class RecentPosts extends Component {
 
   render() {
-    if (!this.state.posts) {
+    if (!this.props.items) {
       // blank state
       return (
         <section className="container">
@@ -30,7 +15,7 @@ export default class RecentPosts extends Component {
       )
     }
 
-    const { posts } = this.state
+    const { items: posts } = this.props
 
     return (
       <section className="container">
@@ -48,18 +33,8 @@ export default class RecentPosts extends Component {
     )
   }
 
-  populatePosts() {
-    superagent
-      .get('/api/posts?latest=true')
-      .end((err, res) => {
-        if (process.env.NODE_ENV === 'development') {
-          // eslint-disable-next-line
-          console.log(res.req.url, res.body)
-        }
-
-        if (err) return
-
-        this.setState({ posts: res.body })
-      })
-  }
 }
+
+export default Loader({
+  api: 'posts',
+})(RecentPosts)
