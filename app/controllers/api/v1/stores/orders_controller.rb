@@ -4,11 +4,18 @@ class Api::V1::Stores::OrdersController < ApplicationController
   respond_to :json
 
   def index
-    respond_with current_user.orders
+    orders = paginate current_user
+                      .orders
+                      .includes(:customer)
+                      .reorder(created_at: :desc)
+
+    render json: orders
   end
 
   def show
-    respond_with current_user.orders.find(params[:id])
+    render json: current_user
+                  .orders
+                  .find(params[:id])
   end
 
   def update
@@ -21,7 +28,6 @@ class Api::V1::Stores::OrdersController < ApplicationController
   end
 
   private
-
     def order_params
       params
       .permit(:status, :total, :store_id, :customer_id, :product_id, :address, :city, :details)

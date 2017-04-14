@@ -7,6 +7,10 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     scope module: :v1 do
+      get '/products/recents/', to: 'products#recents'
+      get '/stores/:id/products', to: 'stores#products', as: :store_products
+      get '/stores/tags/:tag', to: 'stores#tag', as: :tag
+
       resources :sessions, :only => [:create, :destroy]
       resources :users, except: [:new]
 
@@ -23,10 +27,6 @@ Rails.application.routes.draw do
       resources :stores, :only => [:index, :show]
       resources :products, :only => [:index, :show]
       resources :categories, :only => [:index, :show]
-
-      get '/stores/:id/products', to: 'stores#products', as: :store_products
-      get '/stores/tags/:tag', to: 'stores#tag', as: :tag
-
       resources :tags, :only => [:index]
     end
   end

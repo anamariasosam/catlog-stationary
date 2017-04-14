@@ -3,7 +3,11 @@ class Api::V1::Stores::ProductsController < ApplicationController
   respond_to :json
 
   def index
-    respond_with current_user.products.all
+    products = paginate current_user
+                        .products
+                        .reorder(created_at: :desc)
+
+    render json: products
   end
 
   def create
