@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router'
 
-import './styles/CategoriesHeader.scss'
+import '../assets-style/components/CategoriesHeader.scss'
 
 const CATEGORIES = [
   'Accesorios',

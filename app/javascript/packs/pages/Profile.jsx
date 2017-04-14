@@ -3,7 +3,7 @@ import superagent from 'superagent'
 import jsonp from 'superagent-jsonp'
 import { Link } from 'react-router'
 
-import './styles/Profile.scss'
+import '../assets-style/pages/Profile.scss'
 
 class ProfilePage extends Component {
   constructor() {

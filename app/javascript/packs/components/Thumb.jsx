@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router'
 
-import './styles/Thumb.scss'
+import '../assets-style/components/Thumb.scss'
 
 const Thumb = ({
   alt,

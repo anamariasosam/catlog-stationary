@@ -1,5 +1,5 @@
 import React from 'react'
-import './styles/Ads.scss'
+import '../assets-style/components/Ads.scss'
 
 const CategoryAdLine = props => (
   <div className="container-fluid ads__top">

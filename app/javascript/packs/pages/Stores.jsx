@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './styles/Stores.scss'
+import '../assets-style/pages/Stores.scss'
 
 const Stores = () => (
   <div>

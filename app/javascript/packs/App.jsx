@@ -6,8 +6,6 @@ import {
 } from 'react-router-dom'
 import { Provider } from 'react-redux'
 
-import './style/main.scss'
-
 import TopNav from './components/TopNav'
 import Footer from './components/Footer'
 
@@ -15,8 +13,6 @@ import Blog from './pages/Blog'
 import Categories from './pages/Categories'
 import Contact from './pages/Contact'
 import Home from './pages/Home'
-import Layout from './Layout'
-import LayoutProfile from './LayoutProfile'
 import Login from './containers/Login'
 import LoginHome from './components/LoginHome'
 import Order from './pages/Order'
