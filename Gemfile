@@ -36,3 +36,7 @@ gem 'active_model_serializers'
 
 # Store's tags
 gem 'acts-as-taggable-on', :git => 'https://github.com/mbleigh/acts-as-taggable-on'
+
+# paginator
+gem 'kaminari'
+gem 'api-pagination'
