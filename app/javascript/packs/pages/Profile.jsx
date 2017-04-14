@@ -29,7 +29,7 @@ class ProfilePage extends Component {
         if (err) { return }
 
         this.setState({
-          userdata: res.body.data,
+          userdata: res.body,
         })
       })
   }
