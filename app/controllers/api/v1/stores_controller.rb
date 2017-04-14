@@ -7,6 +7,10 @@ class Api::V1::StoresController < ApplicationController
     render json: Store.all
   end
 
+  def products
+    render json: Store.find(params[:id]).products.all
+  end
+
   def tag
     stores = Store.tagged_with(params[:tag]).by_join_date
     render json: stores

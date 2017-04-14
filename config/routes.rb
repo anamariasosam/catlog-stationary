@@ -24,7 +24,9 @@ Rails.application.routes.draw do
       resources :products, :only => [:index, :show]
       resources :categories, :only => [:index, :show]
 
+      get '/stores/:id/products', to: 'stores#products', as: :store_products
       get '/stores/tags/:tag', to: 'stores#tag', as: :tag
+
       resources :tags, :only => [:index]
     end
   end
