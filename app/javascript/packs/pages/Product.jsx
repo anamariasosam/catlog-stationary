@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
-
 import request from 'superagent'
+
+import {
+  PRODUCT_PATH,
+  ORDERS_PATH,
+} from '../constants/routes'
 
 const ProductHeader = ({
   storeURL,
@@ -88,7 +92,7 @@ class ProductPage extends Component {
       match,
     } = this.props
 
-    const orderURL = `/producto/${match.params.productID}/orden`
+    const orderURL = `${PRODUCT_PATH}/${match.params.productID}${ORDERS_PATH}`
 
     if (loading || errorLoading) {
       return <div className="container">{errorLoading || 'Cargando...'}</div>

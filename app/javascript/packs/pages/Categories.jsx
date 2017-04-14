@@ -28,9 +28,11 @@ class Categories extends Component {
   }
 
   render() {
+    const categoryName = this.props.match.params.categoryName || 'todo'
+
     return (
       <div>
-        <CategoriesHeader current={this.props.params.name || 'todo'} />
+        <CategoriesHeader current={categoryName} />
 
         <CategoryAdLine />
 
@@ -43,8 +45,7 @@ class Categories extends Component {
         <div className="text-center">
           <ReactPaginate
             // this key resets the counter when change page
-            key={this.props.params.name || 'todo'}
-
+            key={categoryName}
             activeClassName="active"
             breakClassName="break-me"
             breakLabel={<a href="">...</a>}
@@ -69,16 +70,23 @@ class Categories extends Component {
   }
 
   setProducts(err, res) {
+    if (process.env.NODE_ENV === 'development') {
+      // eslint-disable-next-line
+      console.log(res.req.url, res.body)
+    }
+
     if (err) { throw new Error(err) }
 
-    this.setState({
-      products: res.body.products,
-    })
+    this.setState({ products: res.body })
   }
 }
 
 Categories.propTypes = {
-  params: PropTypes.objectOf(PropTypes.string).isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      categoryName: PropTypes.string,
+    }),
+  }),
 }
 
 export default Categories

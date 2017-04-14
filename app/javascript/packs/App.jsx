@@ -26,12 +26,13 @@ import Stores from './pages/Stores'
 
 // TODO replace string routes with variables on all files
 import {
-  PROFILE_PATH,
+  BLOG_PATH,
   CATEGORIES_PATH,
   CONTACT_PATH,
   LOGIN_PATH,
+  ORDERS_PATH,
   PRODUCT_PATH,
-  BLOG_PATH,
+  PROFILE_PATH,
   STORES_PATH,
 } from './constants/routes'
 
@@ -49,12 +50,13 @@ const App = props => (
               <Route exact path="/" component={Home} />
               <Route path={BLOG_PATH} component={Blog} />
               <Route path="/blog/post/:postID" component={Post} />
-              <Route path={`${CATEGORIES_PATH}/:name(/:pageNumber)`} component={Categories} />
+              <Route path={`${CATEGORIES_PATH}/:categoryName(/:pageNumber)`} component={Categories} />
               <Route path={`${CATEGORIES_PATH}(/:pageNumber)`} component={Categories} />
+              <Route path={`${CATEGORIES_PATH}`} component={Categories} />
               <Route path={CONTACT_PATH} component={Contact} />
               <Route path={LOGIN_PATH} component={LoginHome} />
               <Route path={`${PRODUCT_PATH}/:productID`} component={Product} />
-              <Route path={`${PRODUCT_PATH}/:productID/orden`} component={requireAuth(Order)} />
+              <Route path={`${PRODUCT_PATH}/:productID${ORDERS_PATH}`} component={requireAuth(Order)} />
               <Route path={STORES_PATH} component={Stores} />
               <Route path="/users/auth/instagram/callback" component={Login} />
             </Switch>
