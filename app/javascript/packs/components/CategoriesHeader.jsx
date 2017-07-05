@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
-import superagent from 'superagent'
 
 import '../assets-style/components/CategoriesHeader.scss'
 
@@ -11,18 +10,11 @@ export default class CategoriesHeader extends Component {
 
     this.state = {
       loading: true,
-      categories: null,
     }
-
-    this.populateCategories = ::this.populateCategories
-  }
-
-  componentDidMount() {
-    this.populateCategories()
   }
 
   render() {
-    const { categories } = this.state
+    const { categories } = this.props
 
     return (
       <header className="container-fluid">
@@ -52,20 +44,5 @@ export default class CategoriesHeader extends Component {
         </div>
       </header>
     )
-  }
-
-  populateCategories() {
-    superagent
-      .get('/api/categories')
-      .end((err, res) => {
-        if (process.env.NODE_ENV === 'development') {
-          // eslint-disable-next-line
-          console.log(res.req.url, res.body.categories, res.length)
-        }
-
-        if (err) return
-
-        this.setState({ categories: res.body.categories })
-      })
   }
 }

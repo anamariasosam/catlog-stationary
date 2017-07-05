@@ -15,30 +15,51 @@ class Categories extends Component {
       currentPage: 0,
       pageCount: 2,
       products: [],
+      categories: [],
     }
 
     this.handlePageClick = ::this.handlePageClick
     this.setProducts = ::this.setProducts
+    this.populateCategories = ::this.populateCategories
+    this.populateAllProducts = ::this.populateAllProducts
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    const prevCategoryName = prevProps.match.params.categoryName
+    const categoryName = this.props.match.params.categoryName
+    const { id } = this.state.categories.find((obj) => obj.name.toLowerCase() === categoryName)
+
+    // TODO: Fix 'todo' products
+    if (prevCategoryName !== categoryName) {
+      const endpoint = `/api/categories/${id}`
+
+      superagent
+        .get(endpoint)
+        .end(this.setProducts)
+    }
   }
 
   componentDidMount() {
     // TODO: use one method to load products either from page 0 or selected page e.g. 2..3
-    superagent
-      .get('/api/products')
-      .end(this.setProducts)
+    this.populateCategories()
+    this.populateAllProducts()
   }
 
   render() {
     const categoryName = this.props.match.params.categoryName || 'todo'
     const { products } = this.state
+    const { categories } = this.state
 
     return (
       <div>
-        <CategoriesHeader current={categoryName} />
+        <CategoriesHeader categories={categories} />
 
         <CategoryAdLine />
 
-        {products.map(product => <Thumb {...product} key={product.id}/> )}
+        <div className="clearfix">
+          {products.map(product => <Thumb {...product} key={product.id}/> )}
+        </div>
+
 
         <div className="text-center">
           <ReactPaginate
@@ -63,7 +84,7 @@ class Categories extends Component {
 
   handlePageClick({ selected }) {
     superagent
-      .get(`/api/products?page=${selected}`)
+      .get(`/api/products?page=${selected + 1}`)
       .end(this.setProducts)
   }
 
@@ -76,6 +97,27 @@ class Categories extends Component {
     if (err) { throw new Error(err) }
 
     this.setState({ products: res.body.products })
+  }
+
+  populateCategories() {
+    superagent
+      .get('/api/categories')
+      .end((err, res) => {
+        if (process.env.NODE_ENV === 'development') {
+          // eslint-disable-next-line
+          console.log(res.req.url, res.body.categories, res.length)
+        }
+
+        if (err) return
+
+        this.setState({ categories: res.body.categories })
+      })
+  }
+
+  populateAllProducts() {
+    superagent
+      .get('/api/products')
+      .end(this.setProducts)
   }
 }
 
