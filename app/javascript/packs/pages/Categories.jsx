@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import ReactPaginate from 'react-paginate'
 import superagent from 'superagent'
+import axios from 'axios'
 
 import CategoriesHeader from '../components/CategoriesHeader'
 import CategoryAdLine from '../components/CategoryAdLine'
@@ -22,27 +23,19 @@ class Categories extends Component {
     this.setProducts = ::this.setProducts
     this.populateCategories = ::this.populateCategories
     this.populateAllProducts = ::this.populateAllProducts
+    this.populateCategoryProducts = ::this.populateCategoryProducts
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const prevCategoryName = prevProps.match.params.categoryName
-    const categoryName = this.props.match.params.categoryName
-    const { id } = this.state.categories.find((obj) => obj.name.toLowerCase() === categoryName)
-
-    // TODO: Fix 'todo' products
-    if (prevCategoryName !== categoryName) {
-      const endpoint = `/api/categories/${id}`
-
-      superagent
-        .get(endpoint)
-        .end(this.setProducts)
+    if (this.props.match.params.categoryName !== prevProps.match.params.categoryName) {
+      console.log(this.props.match.params.categoryName, prevProps.match.params.categoryName);
+      this.populateCategories()
     }
   }
 
   componentDidMount() {
     // TODO: use one method to load products either from page 0 or selected page e.g. 2..3
     this.populateCategories()
-    this.populateAllProducts()
   }
 
   render() {
@@ -100,9 +93,8 @@ class Categories extends Component {
   }
 
   populateCategories() {
-    superagent
-      .get('/api/categories')
-      .end((err, res) => {
+    return superagent
+      .get('/api/categories').end((err, res) => {
         if (process.env.NODE_ENV === 'development') {
           // eslint-disable-next-line
           console.log(res.req.url, res.body.categories, res.length)
@@ -110,13 +102,27 @@ class Categories extends Component {
 
         if (err) return
 
-        this.setState({ categories: res.body.categories })
+        this.setState({ categories: res.body.categories }, () => {
+          const categoryName = this.props.match.params.categoryName || 'todo'
+
+          if (categoryName !== 'todo') {
+            this.populateCategoryProducts(categoryName)
+          }
+        })
       })
   }
 
   populateAllProducts() {
     superagent
       .get('/api/products')
+      .end(this.setProducts)
+  }
+
+  populateCategoryProducts(name) {
+    const { id } = this.state.categories.find((obj) => obj.name.toLowerCase() === name)
+
+    superagent
+      .get(`/aaaaaaaaaaaaaaa/${id}`)
       .end(this.setProducts)
   }
 }

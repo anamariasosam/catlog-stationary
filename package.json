@@ -3,6 +3,7 @@
   "private": true,
   "dependencies": {
     "autoprefixer": "^6.7.7",
+    "axios": "^0.16.2",
     "babel-core": "^6.24.1",
     "babel-loader": "^6.4.1",
     "babel-plugin-syntax-trailing-function-commas": "^6.22.0",
@@ -44,6 +45,7 @@
     "webpack-merge": "^4.1.0"
   },
   "devDependencies": {
+    "nodemon": "^1.11.0",
     "webpack-dev-server": "^2.4.2"
   }
 }
